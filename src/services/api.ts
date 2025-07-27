@@ -81,13 +81,13 @@ export const api = {
 		sendMessage: async (
 			instanceId: string,
 			to: string,
-			text: string
+			message: string
 		): Promise<Message> => {
 			return fetchWithAuth(
 				`${API_BASE}/whatsapp/instances/${instanceId}/send-message`,
 				{
 					method: 'POST',
-					body: JSON.stringify({ to, text }),
+					body: JSON.stringify({ to, message }),
 				}
 			);
 		},
