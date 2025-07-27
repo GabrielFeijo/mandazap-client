@@ -25,11 +25,14 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({ children }) => {
 
 	useEffect(() => {
 		if (token && user) {
-			const socketInstance = io('http://localhost:3333', {
-				auth: {
-					token: `Bearer ${token}`,
-				},
-			});
+			const socketInstance = io(
+				import.meta.env.VITE_API_BASE || 'http://localhost:3333',
+				{
+					auth: {
+						token: `Bearer ${token}`,
+					},
+				}
+			);
 
 			socketInstance.on(
 				'qr-code',
