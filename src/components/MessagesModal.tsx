@@ -6,7 +6,7 @@ import type { Message } from '../types';
 import { useAuth } from '../hooks/useAuth';
 import dayjs from 'dayjs';
 import 'dayjs/locale/pt-br';
-import { getInitials } from '../utils/getInitiasl';
+import { getInitials } from '../utils/getInitials';
 import { useSocket } from '../hooks/useSocket';
 
 dayjs.locale('pt-br');
@@ -100,7 +100,7 @@ export const MessagesModal: React.FC<MessagesModalProps> = ({
 												className='w-8 h-8 rounded-full object-cover border'
 											/>
 										) : (
-											<div className='w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center text-xs text-gray-700 font-semibold'>
+											<div className='min-w-12 min-h-12 rounded-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center text-white font-semibold border-2 border-gray-200 group-hover:border-green-300 transition-colors'>
 												{getInitials(contact.name)}
 											</div>
 										)}

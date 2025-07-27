@@ -11,7 +11,7 @@ import { api } from '../services/api';
 import { InstanceCard } from './InstanceCard';
 import { CreateInstanceModal } from './CreateInstanceModal';
 import { useAuth } from '../hooks/useAuth';
-import { getInitials } from '../utils/getInitiasl';
+import { getInitials } from '../utils/getInitials';
 import { useSocket } from '../hooks/useSocket';
 
 export const Dashboard: React.FC = () => {
@@ -78,7 +78,7 @@ export const Dashboard: React.FC = () => {
 						</div>
 
 						<div className='flex items-center space-x-4'>
-							<div className='w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-sm text-gray-700 font-semibold'>
+							<div className='w-12 h-12 rounded-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center text-white font-semibold border-2 border-gray-200 group-hover:border-green-300 transition-colors'>
 								{getInitials(user?.name)}
 							</div>
 							<button

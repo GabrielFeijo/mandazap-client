@@ -6,7 +6,7 @@ import type { Contact } from '../types';
 import { useAuth } from '../hooks/useAuth';
 import dayjs from 'dayjs';
 import 'dayjs/locale/pt-br';
-import { getInitials } from '../utils/getInitiasl';
+import { getInitials } from '../utils/getInitials';
 import { formatPhone } from '../utils/formatNumber';
 
 dayjs.locale('pt-br');
@@ -32,7 +32,6 @@ export const ContactsModal: React.FC<ContactsModalProps> = ({
 	return (
 		<div className='fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50'>
 			<div className='bg-white rounded-2xl p-6 max-w-2xl w-full shadow-lg'>
-				{/* Cabeçalho */}
 				<div className='flex items-center justify-between mb-4'>
 					<div className='flex items-center gap-2'>
 						<CardSim className='w-6 h-6 text-green-600' />
@@ -46,7 +45,6 @@ export const ContactsModal: React.FC<ContactsModalProps> = ({
 					</button>
 				</div>
 
-				{/* Lista de contatos */}
 				<div
 					className='bg-gray-100 rounded-xl p-4 h-96 overflow-y-auto space-y-3'
 					ref={divRef}
@@ -63,10 +61,10 @@ export const ContactsModal: React.FC<ContactsModalProps> = ({
 									<img
 										src={contact.profilePic}
 										alt={contact.name || contact.number}
-										className='w-10 h-10 rounded-full object-cover border'
+										className='w-12 h-12 rounded-full object-cover border'
 									/>
 								) : (
-									<div className='w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-sm text-gray-700 font-semibold'>
+									<div className='w-12 h-12 rounded-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center text-white font-semibold border-2 border-gray-200 group-hover:border-green-300 transition-colors'>
 										{getInitials(contact.name)}
 									</div>
 								)}

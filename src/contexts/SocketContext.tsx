@@ -31,8 +31,6 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({ children }) => {
 				},
 			});
 
-			socketInstance.emit('authenticate', { userId: user.id });
-
 			socketInstance.on(
 				'qr-code',
 				(data: { qrCode: string; instanceId: string }) => {

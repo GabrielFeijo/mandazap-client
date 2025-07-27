@@ -17,6 +17,7 @@ import { QRCodeModal } from './QRCodeModal';
 import { useSocket } from '../hooks/useSocket';
 import { MessagesModal } from './MessagesModal';
 import { ContactsModal } from './ContactsModal';
+import { SendMessageModal } from './SendMessageModal';
 
 interface InstanceCardProps {
 	instance: WhatsAppInstance;
@@ -26,7 +27,7 @@ export const InstanceCard: React.FC<InstanceCardProps> = ({ instance }) => {
 	const { connectionStatus, qrCode, setQrCode, recentMessages } = useSocket();
 	const queryClient = useQueryClient();
 	const [showModal, setShowModal] = useState<
-		'qr' | 'messages' | 'contacts' | null
+		'qr' | 'messages' | 'contacts' | 'send-message' | null
 	>(null);
 
 	const connectMutation = useMutation({
@@ -110,7 +111,10 @@ export const InstanceCard: React.FC<InstanceCardProps> = ({ instance }) => {
 					>
 						<Users className='w-4 h-4' />
 					</button>
-					<button className='bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors flex items-center'>
+					<button
+						className='bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors flex items-center'
+						onClick={() => setShowModal('send-message')}
+					>
 						<Send className='w-4 h-4' />
 					</button>
 				</div>
@@ -149,6 +153,12 @@ export const InstanceCard: React.FC<InstanceCardProps> = ({ instance }) => {
 			)}
 			{showModal === 'contacts' && (
 				<ContactsModal
+					instanceId={instance.id}
+					onClose={() => setShowModal(null)}
+				/>
+			)}
+			{showModal === 'send-message' && (
+				<SendMessageModal
 					instanceId={instance.id}
 					onClose={() => setShowModal(null)}
 				/>
