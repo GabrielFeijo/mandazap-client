@@ -70,9 +70,9 @@ export const Dashboard: React.FC = () => {
 			<header className='bg-white shadow-md border-b border-gray-200 py-1'>
 				<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
 					<div className='flex justify-between items-center h-16'>
-						<div className='flex items-center space-x-3'>
-							<div className='bg-green-600 p-2 rounded-lg'>
-								<MessageSquareText className='w-6 h-6 text-white' />
+						<div className='flex items-center gap-3'>
+							<div className='bg-gradient-to-r from-green-600 to-green-700 p-3 rounded-xl w-fit mx-auto shadow-lg'>
+								<MessageSquareText className='w-6 h-6 text-white drop-shadow-sm' />
 							</div>
 							<h1 className='text-xl font-semibold text-gray-900'>MandaZap</h1>
 						</div>
@@ -103,7 +103,7 @@ export const Dashboard: React.FC = () => {
 
 					<button
 						onClick={() => setShowCreateModal(true)}
-						className='bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2 shadow-lg'
+						className='bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2 shadow-lg outline-none'
 					>
 						<Plus className='w-5 h-5' />
 						<span>Nova Instância</span>
