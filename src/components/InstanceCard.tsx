@@ -112,8 +112,12 @@ export const InstanceCard: React.FC<InstanceCardProps> = ({ instance }) => {
 						<Users className='w-4 h-4' />
 					</button>
 					<button
-						className='bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors flex items-center'
+						className='bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors flex items-center 
+    disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed disabled:hover:bg-gray-300 disabled:border-gray-200 disabled:shadow-none'
 						onClick={() => setShowModal('send-message')}
+						disabled={
+							disconnectMutation.isPending || instance.status !== 'connected'
+						}
 					>
 						<Send className='w-4 h-4' />
 					</button>
