@@ -16,6 +16,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/pt-br';
 import { getInitials } from '../utils/getInitials';
 import { formatPhone } from '../utils/formatNumber';
+import { useHasScroll } from '../hooks/useHasScroll';
 
 dayjs.locale('pt-br');
 
@@ -31,6 +32,7 @@ export const SendMessageModal: React.FC<SendMessageModalProps> = ({
 	const { token } = useAuth();
 	const queryClient = useQueryClient();
 	const formRef = React.useRef<HTMLFormElement>(null);
+	const { hasScroll, ref } = useHasScroll();
 
 	const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
 	const [message, setMessage] = useState('');
@@ -130,7 +132,7 @@ export const SendMessageModal: React.FC<SendMessageModalProps> = ({
 						<XIcon className='w-6 h-6' />
 					</button>
 				</div>
-				<div className='bg-gray-100 rounded-xl p-4 h-96 overflow-y-auto space-y-2'>
+				<div className='bg-gray-100 rounded-xl p-4 h-96 overflow-hidden space-y-2'>
 					{success && (
 						<div className='p-4 bg-green-50 border-b border-green-200'>
 							<div className='flex items-center gap-3 text-green-800'>
@@ -176,7 +178,12 @@ export const SendMessageModal: React.FC<SendMessageModalProps> = ({
 								/>
 							</div>
 
-							<div className='space-y-2 max-h-80 overflow-y-auto'>
+							<div
+								className={`space-y-2 max-h-72 overflow-y-auto ${
+									hasScroll ? 'pr-3' : ''
+								}`}
+								ref={ref}
+							>
 								{isLoading ? (
 									<div className='flex items-center justify-center py-8'>
 										<div className='flex items-center space-x-3'>
