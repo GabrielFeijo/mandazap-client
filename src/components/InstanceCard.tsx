@@ -18,6 +18,7 @@ import { useSocket } from '../hooks/useSocket';
 import { MessagesModal } from './MessagesModal';
 import { ContactsModal } from './ContactsModal';
 import { SendMessageModal } from './SendMessageModal';
+import { formatPhone } from '../utils/formatNumber';
 
 interface InstanceCardProps {
 	instance: WhatsAppInstance;
@@ -72,12 +73,10 @@ export const InstanceCard: React.FC<InstanceCardProps> = ({ instance }) => {
 					</div>
 					<div>
 						<h3 className='font-semibold text-lg'>{instance.name}</h3>
-						{instance.phoneNumber && (
-							<p className='text-gray-600 text-sm flex items-center'>
-								<Phone className='w-3 h-3 mr-1' />
-								{instance.phoneNumber}
-							</p>
-						)}
+						<p className='text-gray-600 text-sm flex items-center'>
+							<Phone className='w-3 h-3 mr-1' />
+							{instance.phoneNumber ? formatPhone(instance.phoneNumber) : 'Sem número'}
+						</p>
 					</div>
 				</div>
 				<StatusBadge status={status} />
