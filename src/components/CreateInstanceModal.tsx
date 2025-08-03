@@ -128,11 +128,10 @@ export const CreateInstanceModal: React.FC<CreateInstanceModalProps> = ({
 							type='text'
 							value={name}
 							onChange={handleNameChange}
-							className={`w-full px-4 py-3 border rounded-lg transition-all duration-200 ${
-								showError
-									? 'border-red-300 focus:ring-2 focus:ring-red-500 focus:border-red-500'
-									: 'border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent'
-							} outline-none`}
+							className={`w-full px-4 py-3 border rounded-lg transition-all duration-200 ${showError
+								? 'border-red-300 focus:ring-2 focus:ring-red-500 focus:border-red-500'
+								: 'border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent'
+								} outline-none`}
 							placeholder='Ex: Vendas, Suporte, Pessoal...'
 							maxLength={50}
 							aria-invalid={showError}
@@ -183,12 +182,15 @@ export const CreateInstanceModal: React.FC<CreateInstanceModalProps> = ({
 									Criando...
 								</>
 							) : (
-								'Criar Instância'
+								<>
+									<span className="inline sm:hidden">Criar</span>
+									<span className="hidden sm:inline">Criar Instância</span>
+								</>
 							)}
 						</button>
 					</div>
 				</form>
-			</div>
-		</div>
+			</div >
+		</div >
 	);
 };
