@@ -1,9 +1,5 @@
 # 📱 MandaZap
 
-Uma aplicação web moderna para gerenciamento de múltiplas instâncias do WhatsApp, desenvolvida com React, TypeScript, Vite e Tailwind CSS.
-
-## 🚀 Sobre o Projeto
-
 O **MandaZap** é uma interface web intuitiva que permite aos usuários gerenciar múltiplas instâncias do WhatsApp simultaneamente. A aplicação oferece funcionalidades avançadas para envio de mensagens, gerenciamento de contatos e monitoramento em tempo real.
 
 ### 📸 Screenshots
@@ -65,15 +61,15 @@ _Modal para envio de mensagens_
 ```
 src/
 ├── components/          # Componentes React
-│   ├── Dashboard.tsx           # Dashboard principal
-│   ├── LoginForm.tsx           # Formulário de login/registro
-│   ├── InstanceCard.tsx        # Card de instância
-│   ├── CreateInstanceModal.tsx # Modal de criação
-│   ├── SendMessageModal.tsx    # Modal de envio de mensagens
-│   ├── MessagesModal.tsx       # Modal de mensagens
-│   ├── ContactsModal.tsx       # Modal de contatos
-│   ├── QRCodeModal.tsx         # Modal de QR Code
-│   └── StatusBadge.tsx         # Badge de status
+│   ├── Dashboard.tsx
+│   ├── LoginForm.tsx
+│   ├── InstanceCard.tsx
+│   ├── CreateInstanceModal.tsx
+│   ├── SendMessageModal.tsx
+│   ├── MessagesModal.tsx
+│   ├── ContactsModal.tsx
+│   ├── QRCodeModal.tsx
+│   └── StatusBadge.tsx
 ├── contexts/           # Contextos React
 │   ├── AuthContext.tsx         # Contexto de autenticação
 │   └── SocketContext.tsx       # Contexto de WebSocket
@@ -82,7 +78,7 @@ src/
 │   └── useSocket.ts           # Hook de WebSocket
 ├── services/          # Serviços de API
 │   ├── api.ts                # Configuração da API
-│   └── fetchWithAuth.ts      # Fetch com autenticação
+│   └── fetchWithAuth.ts
 ├── types/
 │   └── index.ts
 ├── utils/             # Utilitários
