@@ -8,6 +8,7 @@ import type {
 } from '../types';
 import { useAuth } from '../hooks/useAuth';
 import { SocketContext } from '../hooks/useSocket';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 interface SocketProviderProps {
 	children: ReactNode;
@@ -20,8 +21,13 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({ children }) => {
 	const [connectionStatus, setConnectionStatus] = useState<ConnectionStatus>(
 		{}
 	);
+	const totalUnreadMessages = Object.values(recentMessages)
+		.flat()
+		.length;
 
 	const { token, user } = useAuth();
+
+	usePageTitle({ unreadCount: totalUnreadMessages });
 
 	useEffect(() => {
 		if (token && user) {
