@@ -61,7 +61,10 @@ export const MessagesModal: React.FC<MessagesModalProps> = ({
 			<div
 				className='bg-white rounded-2xl p-6 max-w-2xl w-full shadow-lg'
 				onClick={() => {
-					setRecentMessages({});
+					setRecentMessages((prev) => ({
+						...prev,
+						[instanceId]: [],
+					}));
 				}}
 			>
 				<div className='flex items-center justify-between mb-4'>
