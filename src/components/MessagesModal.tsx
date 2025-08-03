@@ -93,25 +93,16 @@ export const MessagesModal: React.FC<MessagesModalProps> = ({
 									className={`flex justify-start`}
 								>
 									<div className='flex items-end gap-2 w-full'>
-										{contact?.profilePic ? (
-											<img
-												src={contact.profilePic}
-												alt={contact.name || contact.number}
-												className='w-8 h-8 rounded-full object-cover border'
-											/>
-										) : (
-											<div className='min-w-12 min-h-12 rounded-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center text-white font-semibold border-2 border-gray-200 group-hover:border-green-300 transition-colors'>
-												{getInitials(contact.name)}
-											</div>
-										)}
+										<div className='min-w-12 min-h-12 rounded-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center text-white font-semibold border-2 border-gray-200 group-hover:border-green-300 transition-colors'>
+											{getInitials(contact.name)}
+										</div>
 
 										<div
 											className={`rounded-xl px-4 py-2 text-sm shadow relative bg-white text-gray-800  rounded-bl-none 
-											${
-												recentMessagesId.includes(message.messageId)
+											${recentMessagesId.includes(message.messageId)
 													? 'ring-1 shadow-md shadow-green-500/30 ring-green-500'
 													: ''
-											}
+												}
 
 											w-full`}
 										>

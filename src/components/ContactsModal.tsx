@@ -57,17 +57,9 @@ export const ContactsModal: React.FC<ContactsModalProps> = ({
 								key={contact.id}
 								className='bg-white rounded-lg p-4 flex items-center gap-4 shadow-sm hover:bg-gray-50 transition'
 							>
-								{contact.profilePic ? (
-									<img
-										src={contact.profilePic}
-										alt={contact.name || contact.number}
-										className='w-12 h-12 rounded-full object-cover border'
-									/>
-								) : (
-									<div className='w-12 h-12 rounded-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center text-white font-semibold border-2 border-gray-200 group-hover:border-green-300 transition-colors'>
-										{getInitials(contact.name)}
-									</div>
-								)}
+								<div className='w-12 h-12 rounded-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center text-white font-semibold border-2 border-gray-200 group-hover:border-green-300 transition-colors'>
+									{getInitials(contact.name)}
+								</div>
 
 								<div>
 									<p className='text-sm font-medium text-gray-800'>

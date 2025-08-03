@@ -179,9 +179,8 @@ export const SendMessageModal: React.FC<SendMessageModalProps> = ({
 							</div>
 
 							<div
-								className={`space-y-2 max-h-72 overflow-y-auto ${
-									hasScroll ? 'pr-3' : ''
-								}`}
+								className={`space-y-2 max-h-72 overflow-y-auto ${hasScroll ? 'pr-3' : ''
+									}`}
 								ref={ref}
 							>
 								{isLoading ? (
@@ -200,17 +199,10 @@ export const SendMessageModal: React.FC<SendMessageModalProps> = ({
 											onClick={() => handleContactSelect(contact)}
 											className='w-full bg-white hover:bg-gray-50 rounded-lg p-4 flex items-center gap-4 transition-colors text-left group'
 										>
-											{contact.profilePic ? (
-												<img
-													src={contact.profilePic}
-													alt={contact.name || contact.number}
-													className='w-12 h-12 rounded-full object-cover border-2 border-gray-200 group-hover:border-green-300 transition-colors'
-												/>
-											) : (
-												<div className='w-12 h-12 rounded-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center text-white font-semibold border-2 border-gray-200 group-hover:border-green-300 transition-colors'>
-													{getInitials(contact.name)}
-												</div>
-											)}
+											<div className='w-12 h-12 rounded-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center text-white font-semibold border-2 border-gray-200 group-hover:border-green-300 transition-colors'>
+												{getInitials(contact.name)}
+											</div>
+
 											<div className='flex-1 min-w-0'>
 												<p className='font-medium text-gray-900 truncate'>
 													{contact.name || 'Sem nome'}
@@ -243,17 +235,10 @@ export const SendMessageModal: React.FC<SendMessageModalProps> = ({
 					) : (
 						<div className='space-y-4'>
 							<div className='bg-white rounded-lg p-4 flex items-center gap-4'>
-								{selectedContact.profilePic ? (
-									<img
-										src={selectedContact.profilePic}
-										alt={selectedContact.name || selectedContact.number}
-										className='w-12 h-12 rounded-full object-cover border-2 border-gray-200'
-									/>
-								) : (
-									<div className='w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white font-semibold'>
-										{getInitials(selectedContact.name)}
-									</div>
-								)}
+								<div className='w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-green-600 items-center justify-center text-white font-semibold hidden sm:flex'>
+									{getInitials(selectedContact.name)}
+								</div>
+
 								<div className='flex-1'>
 									<p className='font-semibold text-gray-900'>
 										{selectedContact.name || 'Sem nome'}
@@ -266,7 +251,8 @@ export const SendMessageModal: React.FC<SendMessageModalProps> = ({
 									onClick={handleBackToContacts}
 									className='text-sm text-green-600 hover:text-green-700 font-medium px-3 py-1 rounded-md hover:bg-green-50 transition-colors'
 								>
-									Trocar contato
+									<span className="inline sm:hidden">Trocar</span>
+									<span className="hidden sm:inline">Trocar contato</span>
 								</button>
 							</div>
 
@@ -323,7 +309,8 @@ export const SendMessageModal: React.FC<SendMessageModalProps> = ({
 										) : (
 											<>
 												<Send className='w-4 h-4' />
-												Enviar Mensagem
+												<span className="inline sm:hidden">Enviar</span>
+												<span className="hidden sm:inline">Enviar Mensagem</span>
 											</>
 										)}
 									</button>
