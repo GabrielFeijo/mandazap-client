@@ -174,7 +174,6 @@ export const SendMessageModal: React.FC<SendMessageModalProps> = ({
 									onChange={(e) => setSearchTerm(e.target.value)}
 									className='w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-1 focus:ring-green-500 bg-white focus:border-transparent outline-none text-sm'
 									placeholder='Buscar contato por nome ou número...'
-									autoFocus
 								/>
 							</div>
 
@@ -276,7 +275,6 @@ export const SendMessageModal: React.FC<SendMessageModalProps> = ({
 										placeholder='Digite sua mensagem aqui...'
 										rows={4}
 										maxLength={4000}
-										autoFocus
 									/>
 									<div className='flex justify-between items-center mt-1'>
 										<p className='text-xs text-gray-500'>
