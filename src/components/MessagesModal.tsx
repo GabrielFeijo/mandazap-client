@@ -113,7 +113,12 @@ export const MessagesModal: React.FC<MessagesModalProps> = ({
 												{contact?.name || contact?.number || 'Contato'}
 											</p>
 
-											{message.text && <p>{message.text}</p>}
+											{message.text && (
+												<p className="whitespace-pre-line [overflow-wrap:anywhere]">
+													{message.text}
+												</p>
+											)}
+
 
 											<span className='block text-[10px] mt-1 text-gray-300 text-right'>
 												{dayjs(message.timestamp).format('HH:mm')}

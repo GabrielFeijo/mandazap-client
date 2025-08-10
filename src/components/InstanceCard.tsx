@@ -75,7 +75,9 @@ export const InstanceCard: React.FC<InstanceCardProps> = ({ instance }) => {
 						<h3 className='font-semibold text-lg'>{instance.name}</h3>
 						<p className='text-gray-600 text-sm flex items-center'>
 							<Phone className='w-3 h-3 mr-1' />
-							{instance.phoneNumber ? formatPhone(instance.phoneNumber) : 'Sem número'}
+							{instance.phoneNumber
+								? formatPhone(instance.phoneNumber)
+								: 'Sem número'}
 						</p>
 					</div>
 				</div>
@@ -114,9 +116,7 @@ export const InstanceCard: React.FC<InstanceCardProps> = ({ instance }) => {
 						className='bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors flex items-center 
     disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed disabled:hover:bg-gray-300 disabled:border-gray-200 disabled:shadow-none'
 						onClick={() => setShowModal('send-message')}
-						disabled={
-							disconnectMutation.isPending || instance.status !== 'connected'
-						}
+						disabled={status !== 'connected'}
 					>
 						<Send className='w-4 h-4' />
 					</button>
@@ -131,15 +131,18 @@ export const InstanceCard: React.FC<InstanceCardProps> = ({ instance }) => {
 					Ver mensagens
 				</button>
 
-				{((status === 'connecting' && !instanceQR) || instanceQR) &&
+				{((status === 'connecting' && !instanceQR) || instanceQR) && (
 					<button
 						onClick={() => setShowModal('qr')}
-						disabled={disconnectMutation.isPending || (status === 'connecting' && !instanceQR)}
+						disabled={
+							disconnectMutation.isPending ||
+							(status === 'connecting' && !instanceQR)
+						}
 						className='flex-1 w-full py-2 px-4 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors disabled:opacity-50 flex items-center justify-center'
 					>
-						{(status === 'connecting' && !instanceQR) ? (
+						{status === 'connecting' && !instanceQR ? (
 							<>
-								<div className="w-4 h-4 mr-2 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
+								<div className='w-4 h-4 mr-2 border-2 border-gray-400 border-t-transparent rounded-full animate-spin'></div>
 								Aguardando QR Code
 							</>
 						) : (
@@ -149,7 +152,7 @@ export const InstanceCard: React.FC<InstanceCardProps> = ({ instance }) => {
 							</>
 						)}
 					</button>
-				}
+				)}
 			</div>
 			{showModal === 'qr' && qrCode && (
 				<QRCodeModal
